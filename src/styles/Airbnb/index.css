@@ -1,0 +1,15 @@
+@tailwind utilities;
+
+@layer utilities {
+  .pt-beta-nav-bar {
+    @apply flex bg-primary;
+  }
+
+  .pt-beta-nav-bar .pt-beta-search-nav {
+    @apply flex bg-primary;
+  }
+
+  .pt-beta-search-nav {
+    @apply bg-secondary;
+  }
+}
