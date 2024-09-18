@@ -2,11 +2,7 @@
 
 import React from 'react';
 
-type PantipPageProps = {
-  html: string | null;
-};
-
-const PantipPage: React.FC<PantipPageProps> = async () => {
+const PantipPage = async () => {
   let html: string | null = null;
 
   try {
@@ -23,7 +19,8 @@ const PantipPage: React.FC<PantipPageProps> = async () => {
 
       {html
         ? (
-            <div className="" dangerouslySetInnerHTML={{ __html: html }} />
+            // eslint-disable-next-line react-dom/no-dangerously-set-innerhtml
+            <div className="" dangerouslySetInnerHTML={{ __html: html! }} />
           )
         : (
             <p>Loading...</p>
