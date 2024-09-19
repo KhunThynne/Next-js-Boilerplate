@@ -1,9 +1,12 @@
-'use clinet';
+'use client';
 
 import { Image } from '@nextui-org/image';
 import { MdMenu } from 'react-icons/md';
 
+import useSidebar from '@/actions/hooks/sidebarToggle';
+
 const Navbar = () => {
+  const { sidebarToggle } = useSidebar();
   return (
     <nav className="sticky top-0 z-50   flex w-full
     bg-white
@@ -13,7 +16,9 @@ const Navbar = () => {
      "
     >
       <div className="flex cursor-pointer items-center px-5">
-        <MdMenu className="text-2xl" />
+        <button onClick={sidebarToggle} type="button">
+          <MdMenu className="text-2xl" />
+        </button>
       </div>
       <div className="mx-auto rounded-xl bg-primary p-3 py-2  sm:mx-0">
         <Image

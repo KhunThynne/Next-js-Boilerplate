@@ -1,13 +1,13 @@
 // store/rootReducer.ts
 import { combineReducers } from '@reduxjs/toolkit';
 
-// import reducers
-import exampleReducer from './exampleSlice';
-import pantipReducer from './fetures/pantipSlice';
+import { pantipSlice, sidebarSlice } from './fetures';
 
 const rootReducer = combineReducers({
-  pantip: pantipReducer,
-  example: exampleReducer,
+  pantip: pantipSlice.reducer,
+  sidebarmenu: sidebarSlice.reducer,
 });
 
 export default rootReducer;
+
+export type RootState = ReturnType<typeof rootReducer>;

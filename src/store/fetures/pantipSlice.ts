@@ -20,7 +20,7 @@ export const fetchPantipData = createAsyncThunk('pantip/fetchPantipData', async 
   return data;
 });
 
-const pantipSlice = createSlice({
+export const pantipSlice = createSlice({
   name: 'pantip',
   initialState,
   reducers: {},
@@ -38,5 +38,3 @@ const pantipSlice = createSlice({
       });
   },
 });
-
-export default pantipSlice.reducer;
