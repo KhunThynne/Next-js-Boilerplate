@@ -1,18 +1,10 @@
-import Image from 'next/image';
+import CardsTest from '@/components/Cards';
 
 const PantipPage = () => {
   return (
     <div>
-      <div className="flex justify-center">
-        <Image
-          src={process.env.Bander_image_URL!}
-          height={1000}
-          width={1000}
-          alt="ptcdn"
-        />
 
-      </div>
-
+      <CardsTest />
     </div>
   );
 };

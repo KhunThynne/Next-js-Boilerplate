@@ -1,5 +1,7 @@
+import { Image } from '@nextui-org/image';
 import { useTranslations } from 'next-intl';
 
+import BreadcrumbsItems from '@/components/Breadcrumbs';
 import Navbar from '@/components/Navbar';
 import { AppConfig } from '@/utils/AppConfig';
 
@@ -13,12 +15,27 @@ const BaseTemplate = (props: {
   return (
     <div className="w-full  text-gray-700 antialiased">
       <Navbar />
+
       <div className="mx-auto
-       max-w-screen-2xl
+       max-w-screen-xl
        "
       >
+        {/* Breadcrumbs Layout */}
+        <div className="mb-5 flex justify-center md:mx-4 md:my-5">
+          <Image
+            src={process.env.Bander_image_URL!}
 
-        <main className="min-h-screen">{props.children}</main>
+            alt="ptcdn"
+
+            className="  rounded-none !opacity-90 md:rounded-lg"
+          />
+        </div>
+        <BreadcrumbsItems />
+
+        <main className="min-h-screen">
+
+          {props.children}
+        </main>
 
         <footer className="border-t border-gray-300 py-8 text-center text-sm">
           {`© Copyright ${new Date().getFullYear()} ${AppConfig.name}. ${t('made_with')} `}
