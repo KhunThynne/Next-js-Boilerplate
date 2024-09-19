@@ -12,4 +12,7 @@
   .pt-beta-search-nav {
     @apply bg-secondary;
   }
+  .container .pt-breadcrumb {
+    @apply bg-secondary;
+  }
 }

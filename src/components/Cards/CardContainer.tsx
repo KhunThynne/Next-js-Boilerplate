@@ -1,3 +1,4 @@
+'use client';
 import { Card, CardBody, CardFooter, CardHeader } from '@nextui-org/card';
 import { Image } from '@nextui-org/image';
 import Link from 'next/link';

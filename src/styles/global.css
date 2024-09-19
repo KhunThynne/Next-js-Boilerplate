@@ -1,18 +1,35 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-/* @import './Airbnb'; */
+@import './Airbnb';
 
-@layer utilities {
-  .pt-beta-nav-bar {
-    @apply flex bg-primary;
-  }
+/* .pt-l-doodle.pt-xxl-toggle-hide,
+.pt-beta-navigation,
+#tab-navbar {
+  display: none;
+}
 
-  .pt-beta-nav-bar .pt-beta-search-nav {
-    @apply flex bg-primary;
-  }
+.pt-block-header div {
+  background-color: '#9b5454' !important;
+} */
 
-  .pt-beta-search-nav {
-    @apply bg-secondary;
-  }
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 3px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }

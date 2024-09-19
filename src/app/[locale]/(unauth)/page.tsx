@@ -1,12 +1,14 @@
-import CardsTest from '@/components/Cards';
+import AnnounceComponent from '@/components/AnnounceComponent';
+import ChoiceRoomComponent from '@/components/ChoiceRoomComponent';
 
-const PantipPage = () => {
+const HomePage = async () => {
   return (
     <div>
 
-      <CardsTest />
+      <AnnounceComponent />
+      <ChoiceRoomComponent />
     </div>
   );
 };
 
-export default PantipPage;
+export default HomePage;

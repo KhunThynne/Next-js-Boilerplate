@@ -15,11 +15,15 @@ const Navbar = () => {
        lg:px-20
      "
     >
-      <div className="flex cursor-pointer items-center px-5">
-        <button onClick={sidebarToggle} type="button">
+      <button onClick={sidebarToggle} type="button">
+        <div className="flex cursor-pointer items-center px-5">
+
           <MdMenu className="text-2xl" />
-        </button>
-      </div>
+
+        </div>
+        {' '}
+
+      </button>
       <div className="mx-auto rounded-xl bg-primary p-3 py-2  sm:mx-0">
         <Image
 

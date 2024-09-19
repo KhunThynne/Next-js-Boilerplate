@@ -17,26 +17,32 @@ const BaseTemplate = (props: {
 
     <div className="w-full  text-gray-700 antialiased">
       <Navbar />
+      <SideMenu />
+      <div className="mb-5 flex justify-center md:mx-4 md:my-5">
+        <Image
+          src={process.env.Bander_image_URL!}
 
-      <div className="flex">
-        <SideMenu />
+          alt="ptcdn"
+
+          className="  rounded-none !opacity-90 md:rounded-lg"
+        />
+      </div>
+      {/* Breadcrumbs Layout */}
+
+      <BreadcrumbsItems />
+
+      <div className="mt-8">
+
+        <hr />
+
+      </div>
+
+      <div className="">
+
         <div className="mx-auto
        max-w-screen-xl
        "
         >
-
-          <div className="mb-5 flex justify-center md:mx-4 md:my-5">
-            <Image
-              src={process.env.Bander_image_URL!}
-
-              alt="ptcdn"
-
-              className="  rounded-none !opacity-90 md:rounded-lg"
-            />
-          </div>
-          {/* Breadcrumbs Layout */}
-
-          <BreadcrumbsItems />
 
           <main className="min-h-screen">
 
