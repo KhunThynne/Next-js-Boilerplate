@@ -1,6 +1,7 @@
 import { Image } from '@nextui-org/image';
 import { useTranslations } from 'next-intl';
 
+import ChoiceRoomComponent from '@/components/ChoiceRoomComponent';
 import BreadcrumbsItems from '@/components/Layout/Breadcrumbs';
 import Navbar from '@/components/Layout/Navbar';
 import SideMenu from '@/components/Layout/SideMenu';
@@ -18,7 +19,7 @@ const BaseTemplate = (props: {
     <div className="w-full  text-gray-700 antialiased">
       <Navbar />
       <SideMenu />
-      <div className="mb-5 flex justify-center md:mx-4 md:my-5">
+      <div className="flex justify-center md:mx-4 md:my-5">
         <Image
           src={process.env.Bander_image_URL!}
 
@@ -31,7 +32,7 @@ const BaseTemplate = (props: {
 
       <BreadcrumbsItems />
 
-      <div className="mt-8">
+      <div className="my-8">
 
         <hr />
 
@@ -43,7 +44,7 @@ const BaseTemplate = (props: {
        max-w-screen-xl
        "
         >
-
+          <ChoiceRoomComponent />
           <main className="min-h-screen">
 
             {props.children}

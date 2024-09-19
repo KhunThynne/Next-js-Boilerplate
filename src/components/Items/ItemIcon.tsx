@@ -7,20 +7,20 @@ export default function ItemIcon({ item }: { item: any }) {
     <div className=" grid gap-y-2 opacity-50">
       <Link href={item.link_url}>
 
-        <div className="mx-auto flex flex-col rounded-xl px-3">
+        <div className=" flex flex-col  px-2">
           {/* <Icon className="mx-auto text-3xl" /> */}
 
-          <div className="mx-auto my-2 w-16">
+          <div className=" my-2 flex w-16 justify-center">
             <Image
-              className="bg-gray-800"
+              className="rounded-lg bg-gray-800"
               src={item.room_icon_url}
               alt={item.name}
-              width={60} // Specify width as needed
-              height={60} // Specify height as needed
+              width={40} // Specify width as needed
+              height={40} // Specify height as needed
               loading="lazy"
             />
           </div>
-          <span className="whitespace-nowrap text-center text-sm font-bold">
+          <span className="whitespace-nowrap text-center text-xs font-bold">
             {item.name}
             {/* {JSON.stringify(item)} */}
           </span>
