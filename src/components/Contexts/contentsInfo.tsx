@@ -4,6 +4,7 @@ import { CachedFetchXML } from '@/actions/fetch/FetchXML';
 
 type ContextContentsProps = {
   next_Data: any;
+  captionItem: any;
 };
 
 export const ContentsContext = createContext<ContextContentsProps | null>(null);
@@ -22,8 +23,20 @@ const GetDocument = (htmlStr: string | null) => {
   return document;
 };
 
+const SelectorAndJson = (document: any) => {
+  const listItems = document.querySelectorAll('ul.caption > li > a');
+  const jsonData = Array.from(listItems).map((item: any) => ({
+    text: item.textContent,
+    url: item.href,
+  }));
+
+  return jsonData;
+};
+
 const ContentsProvider = ({ children }: { children: ReactNode }) => {
   const [next_Data, setNext_Data] = useState<JSON | null>(null);
+  // const [navbar_Item, setNavbar_Item] = useState<JSON | null>(null);
+  const [captionItem, setCaptionItem] = useState<any>(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -33,6 +46,11 @@ const ContentsProvider = ({ children }: { children: ReactNode }) => {
         const document = GetDocument(htmlStr);
 
         const next_Data = document.getElementById('__NEXT_DATA__');
+
+        // const navbar_Item: any = document.getElementsByClassName('pt-beta-right-nav');
+
+        setCaptionItem(SelectorAndJson(document));
+
         const jsonString = next_Data ? next_Data.textContent : '{}';
 
         setNext_Data(JSON.parse(jsonString!));
@@ -46,7 +64,7 @@ const ContentsProvider = ({ children }: { children: ReactNode }) => {
     fetchData();
   }, []);
 
-  const contextValue = useMemo(() => ({ next_Data }), [next_Data]);
+  const contextValue = useMemo(() => ({ next_Data, captionItem }), [captionItem, next_Data]);
 
   return (
     <ContentsContext.Provider value={contextValue}>

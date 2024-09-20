@@ -1,40 +1,122 @@
 'use client';
 
-import { Image } from '@nextui-org/image';
-import { MdMenu } from 'react-icons/md';
+import { Input } from '@nextui-org/input';
+import { useRouter } from 'next/navigation';
+import { useEffect, useState } from 'react';
+import { MdMenu, MdPerson, MdSearch } from 'react-icons/md';
 
 import useSidebar from '@/actions/hooks/sidebarToggle';
 
+import Brander from '../Brander';
+import { useContents } from '../Contexts/contentsInfo';
+
 const Navbar = () => {
   const { sidebarToggle } = useSidebar();
+  const [navItem, setNavItem] = useState<[]>();
+  const { next_Data } = useContents();
+  const router = useRouter();
+  useEffect(() => {
+    setNavItem(next_Data?.props?.initialState.header.roomLists);
+  }, [navItem]);
+
   return (
-    <nav className="sticky top-0 z-50   flex w-full
-    bg-white
-     py-2 text-primary
-     shadow
-       lg:px-20
+    <nav className="fixed bottom-0 z-50
+    flex
+
+     min-h-[80px]
+
+    w-full
+ items-center
+     justify-center
+     border-t
+     bg-white
+       px-[24px]
+      py-2
+      text-primary
+      shadow
+      md:sticky
+      md:top-0
+md:justify-between
+
+lg:px-20
      "
     >
-      <button onClick={sidebarToggle} type="button">
-        <div className="flex cursor-pointer items-center px-5">
 
-          <MdMenu className="text-2xl" />
+      <div className="
+      order-1
 
-        </div>
-        {' '}
+        hidden
+        rounded-md bg-primary
 
-      </button>
-      <div className="mx-auto rounded-xl bg-primary p-3 py-2  sm:mx-0">
-        <Image
+        md:block
 
-          src="https://ptcdn.info/mobile/logo-mobile-pantip-white.png
-"
-          radius="none"
-          alt="logo"
-          width="55"
-          height="55"
+        lg:order-1
+        "
+      >
+
+        <Brander />
+      </div>
+
+      <div className="order-2
+      hidden items-center
+      justify-center
+text-white
+md:block
+      "
+      >
+        <Input
+
+          isClearable
+          radius="lg"
+          classNames={{
+            label: 'text-black/50 dark:text-white/90 ',
+            input: [
+              'bg-transparent',
+              'text-black/90 dark:text-white/90',
+              'placeholder:text-default-700/50 dark:placeholder:text-white/60',
+            ],
+            innerWrapper: 'bg-transparent',
+            inputWrapper: [
+              'w-[40vw]',
+              'bg-default-200/50',
+              'dark:bg-default/60',
+              'backdrop-blur-xl',
+              'backdrop-saturate-200',
+              'hover:bg-default-200/70',
+              'dark:hover:bg-default/70',
+              'group-data-[focus=true]:bg-default-200/50',
+              'dark:group-data-[focus=true]:bg-default/60',
+              '!cursor-text',
+            ],
+          }}
+          placeholder="Type to search..."
+          startContent={
+            <MdSearch className="text-2xl" />
+          }
         />
       </div>
+
+      <div className="order-3 flex  gap-8  text-3xl lg:gap-5">
+
+        <div className="flex  items-center ">
+          <button
+            onClick={() => {
+              router.push('https://pantip.com/login?redirect=Zm9ydW0vbmV3X3RvcGlj&pos=2');
+            }}
+            type="button"
+          >
+            <MdPerson />
+          </button>
+        </div>
+
+        <div className="flex  items-center ">
+          <button onClick={sidebarToggle} type="button">
+            <MdMenu />
+          </button>
+        </div>
+
+      </div>
+
     </nav>
   );
 };

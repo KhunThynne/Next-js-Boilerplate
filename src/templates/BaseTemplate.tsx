@@ -5,6 +5,7 @@ import ChoiceRoomComponent from '@/components/ChoiceRoomComponent';
 import BreadcrumbsItems from '@/components/Layout/Breadcrumbs';
 import Navbar from '@/components/Layout/Navbar';
 import SideMenu from '@/components/Layout/SideMenu';
+import SearchInput from '@/components/SearchInput';
 import { AppConfig } from '@/utils/AppConfig';
 
 const BaseTemplate = (props: {
@@ -19,9 +20,9 @@ const BaseTemplate = (props: {
     <div className="w-full  text-gray-700 antialiased">
       <Navbar />
       <SideMenu />
-      <div className="flex justify-center md:mx-4 md:my-5">
+      <div className="my-5 hidden justify-center md:mx-4 md:flex">
         <Image
-          src={process.env.Bander_image_URL!}
+          src={process.env.Picture1_image_URL!}
 
           alt="ptcdn"
 
@@ -29,10 +30,20 @@ const BaseTemplate = (props: {
         />
       </div>
       {/* Breadcrumbs Layout */}
+      <div className="sticky top-0    bg-white px-6 py-3 md:hidden">
 
-      <BreadcrumbsItems />
+        <SearchInput />
+      </div>
 
-      <div className="my-8">
+      <div className="
+
+    z-20
+    hidden
+       md:block"
+      >
+        <BreadcrumbsItems />
+      </div>
+      <div className="my-8 hidden md:block">
 
         <hr />
 
@@ -41,16 +52,16 @@ const BaseTemplate = (props: {
       <div className="">
 
         <div className="mx-auto
-       max-w-screen-xl
+       max-w-screen-2xl
        "
         >
-          <ChoiceRoomComponent />
-          <main className="min-h-screen">
 
+          <main className="min-h-screen  ">
+            <ChoiceRoomComponent />
             {props.children}
           </main>
 
-          <footer className="border-t border-gray-300 py-8 text-center text-sm">
+          <footer className="mb:pb-8 border-t border-gray-300 pb-36 pt-8  text-center text-sm md:py-8 ">
             {`© Copyright ${new Date().getFullYear()} ${AppConfig.name}. ${t('made_with')} `}
             <a
               href="https://creativedesignsguru.com"
