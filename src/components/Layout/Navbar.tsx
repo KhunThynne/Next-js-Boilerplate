@@ -2,22 +2,16 @@
 
 import { Input } from '@nextui-org/input';
 import { useRouter } from 'next/navigation';
-import { useEffect, useState } from 'react';
 import { MdMenu, MdPerson, MdSearch } from 'react-icons/md';
 
 import useSidebar from '@/actions/hooks/sidebarToggle';
 
 import Brander from '../Brander';
-import { useContents } from '../Contexts/contentsInfo';
 
 const Navbar = () => {
   const { sidebarToggle } = useSidebar();
-  const [navItem, setNavItem] = useState<[]>();
-  const { next_Data } = useContents();
+
   const router = useRouter();
-  useEffect(() => {
-    setNavItem(next_Data?.props?.initialState.header.roomLists);
-  }, [navItem]);
 
   return (
     <nav className="fixed bottom-0 z-50

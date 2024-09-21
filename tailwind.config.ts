@@ -3,8 +3,8 @@ import type { Config } from 'tailwindcss';
 
 export default {
   content: [
-    './src/**/*.{js,ts,jsx,tsx}',
-    './node_modules/@nextui-org/theme/dist/components/(breadcrumbs|card|image|input|popover|skeleton|ripple|button|spinner).js',
+    "./src/**/*.{js,ts,jsx,tsx}",
+    "./node_modules/@nextui-org/theme/dist/components/(breadcrumbs|button|card|image|input|listbox|popover|skeleton|ripple|spinner|divider).js"
   ],
   theme: {
     extend: {

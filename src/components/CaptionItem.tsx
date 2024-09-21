@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 
-import { useContents } from './Contexts/contentsInfo';
+import { useContents } from './Contexts/ContentContext';
 
 export default function CaptionItems() {
   const { captionItem } = useContents();

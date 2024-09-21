@@ -6,7 +6,7 @@ import React from 'react';
 export default function ItemIcon({ item }: { item: any }) {
   return (
 
-    <Link href={item.link_url}>
+    <Link href={item.link_url} className="hover:opacity-80">
 
       <div className=" flex flex-col  px-2">
 
@@ -33,8 +33,9 @@ export default function ItemIcon({ item }: { item: any }) {
 export const SkeletionItemIcon = ({ className }: { className?: string }) => {
   return (
     <div className={`my-2 flex gap-y-1 ${className}`}>
-      {[...Array(40)].map((_, index) => (
-        <div key={index} className="flex flex-col px-2">
+      {[...Array(40)].map((_, key) => (
+        // eslint-disable-next-line react/no-array-index-key
+        <div key={key} className="flex flex-col px-2">
           <div className="my-2 flex w-16">
             <Skeleton className="h-10 w-3/5 rounded-lg">
               <div className="h-2 w-3/5 rounded-lg bg-default-400" />

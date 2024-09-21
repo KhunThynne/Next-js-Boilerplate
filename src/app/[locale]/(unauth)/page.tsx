@@ -1,11 +1,18 @@
-import AnnounceComponent from '@/components/AnnounceComponent';
+import Content from '@/components/Contents/Content';
+import ContentLists from '@/components/Contents/ListsContent';
 
 const HomePage = async () => {
   return (
-    <div>
+    <div className="">
 
-      <AnnounceComponent />
+      <div className="grid gap-y-8">
+        <ContentLists HeadContainer="Announce" data={[{}]} />
 
+        <Content HeadContainer="Pantip Pick" />
+
+        <Content HeadContainer="Hit Tag" />
+
+      </div>
     </div>
   );
 };

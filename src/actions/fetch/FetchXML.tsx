@@ -1,9 +1,11 @@
+// 1import * as cheerio from 'cheerio';
+
 'use server';
 import { cache } from 'react';
 
-async function FetchXML(): Promise<string | null> {
+async function FetchXML(url: string) {
   try {
-    const response = await fetch(process.env.NEXT_PANTHIP_API_URL!, {
+    const response = await fetch(url, {
       method: 'GET',
       headers: {
         'Content-Type': 'text/html',
@@ -11,12 +13,12 @@ async function FetchXML(): Promise<string | null> {
     });
 
     if (!response.ok) {
-      throw new Error(`HTTP error! Status: ${response.status}`);
+      throw new Error('Network response was not ok');
     }
 
-    const data = await response.text();
+    const htmlString = await response.text();
 
-    return data;
+    return htmlString;
   } catch (error) {
     console.error('Error fetching Pantip page:', error);
     return null;

@@ -7,9 +7,9 @@ export default function BreadcrumbsItems() {
     <Breadcrumbs className="
 
    mx-auto
-    mt-5
+
     flex w-4/5  max-w-screen-xl
-    justify-center
+
     rounded
 
     bg-white

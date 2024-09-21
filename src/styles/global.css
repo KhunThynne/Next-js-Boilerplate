@@ -33,3 +33,18 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
+
+.pt-list-item__img {
+  width: 100%; /* หรือขนาดที่ต้องการ */
+  height: 200px; /* หรือขนาดที่ต้องการ */
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+div.pt-list-item__title {
+  color: red;
+  border-style: solid;
+}
+li.pt-list-item {
+  border-style: solid;
+}

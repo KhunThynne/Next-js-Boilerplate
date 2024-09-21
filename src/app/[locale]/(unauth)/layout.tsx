@@ -13,11 +13,7 @@ export default function Layout(props: {
       {/* <DemoBanner /> */}
       <BaseTemplate>
 
-        <div className="py-5 text-xl  [&_p]:my-6">
-
-          {props.children}
-
-        </div>
+        {props.children}
 
       </BaseTemplate>
     </>

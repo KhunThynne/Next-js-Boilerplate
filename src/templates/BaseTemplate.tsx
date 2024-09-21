@@ -17,71 +17,63 @@ const BaseTemplate = (props: {
 
   return (
 
-    <div className="w-full  text-gray-700 antialiased">
+    <div className="  w-full text-gray-700 antialiased ">
       <Navbar />
       <SideMenu />
-      <div className="my-5 hidden justify-center md:mx-4 md:flex">
+
+      <div className=" my-5 hidden justify-center  md:mx-4 md:flex">
         <Image
           src={process.env.Picture1_image_URL!}
 
           alt="ptcdn"
 
-          className="  rounded-none !opacity-90 md:rounded-lg"
+          className="   rounded-none !opacity-90 md:rounded-lg"
         />
       </div>
       {/* Breadcrumbs Layout */}
-      <div className="sticky top-0    bg-white px-6 py-3 md:hidden">
+      <div className="sticky top-0    z-30 bg-white px-6 py-3 md:hidden">
 
         <SearchInput />
       </div>
 
-      <div className="
-
-    z-20
-    hidden
-       md:block"
-      >
-        <BreadcrumbsItems />
-      </div>
       <div className="my-8 hidden md:block">
-
+        <BreadcrumbsItems />
         <hr />
 
       </div>
 
-      <div className="">
-
-        <div className="mx-auto
-       max-w-screen-2xl
+      <div className="
+xl:px-10
        "
-        >
+      >
 
-          <main className="min-h-screen  ">
-            <ChoiceRoomComponent />
+        <ChoiceRoomComponent />
+        <main className="z-10  min-h-screen overflow-auto lg:p-5 ">
+          <div className="mx-6 py-5  text-xl lg:mx-16 [&_p]:my-6">
             {props.children}
-          </main>
+          </div>
+        </main>
 
-          <footer className="mb:pb-8 border-t border-gray-300 pb-36 pt-8  text-center text-sm md:py-8 ">
-            {`© Copyright ${new Date().getFullYear()} ${AppConfig.name}. ${t('made_with')} `}
-            <a
-              href="https://creativedesignsguru.com"
-              className="text-blue-700 hover:border-b-2 hover:border-blue-700"
-            >
-              CreativeDesignsGuru
-            </a>
-            .
-            {/*
+        <footer className="mb:pb-8 border-t border-gray-300 pb-36 pt-8  text-center text-sm md:py-8 ">
+          {`© Copyright ${new Date().getFullYear()} ${AppConfig.name}. ${t('made_with')} `}
+          <a
+            href="https://creativedesignsguru.com"
+            className="text-blue-700 hover:border-b-2 hover:border-blue-700"
+          >
+            CreativeDesignsGuru
+          </a>
+          .
+          {/*
            * PLEASE READ THIS SECTION
            * I'm an indie maker with limited resources and funds, I'll really appreciate if you could have a link to my website.
            * The link doesn't need to appear on every pages, one link on one page is enough.
            * For example, in the `About` page. Thank you for your support, it'll mean a lot to me.
            */}
-          </footer>
-        </div>
-
+        </footer>
       </div>
 
     </div>
+
   );
 };
 
