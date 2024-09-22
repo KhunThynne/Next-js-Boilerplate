@@ -14,23 +14,23 @@ const Navbar = () => {
   const router = useRouter();
 
   return (
-    <nav className="fixed bottom-0 z-50
-    flex
+    <nav className="fixed bottom-0 z-40 flex
+    min-h-[80px]
 
-     min-h-[80px]
+     w-full
 
-    w-full
- items-center
-     justify-center
+    items-center
+ justify-center
      border-t
-bg-primary
-       px-[24px]
-      py-2
-
+     bg-primary
+px-[24px]
+       py-2
       text-white
+
       shadow
       md:sticky
-md:top-0
+      md:top-0
+md:z-50
 
 md:justify-between
 lg:px-20
@@ -107,20 +107,28 @@ md:block
         <div className="order-2 md:order-1 md:mx-3">
           <button
 
-            className="flex  items-center"
+            className="flex   items-center gap-2"
             onClick={() => {
               router.push('https://pantip.com/login?redirect=Zm9ydW0vbmV3X3RvcGlj&pos=2');
             }}
             type="button"
           >
             <MdAddBox />
-            <h1 className=" hidden text-sm md:block">ตั้งกระทู้</h1>
+            <h1 className="  hidden text-sm md:block ">ตั้งกระทู้</h1>
           </button>
         </div>
         <div className="order-3  flex items-center">
-          <button onClick={sidebarToggle} type="button">
+
+          <button
+
+            className="flex  flex-col items-center"
+            onClick={sidebarToggle}
+            type="button"
+          >
             <MdMenu />
+
           </button>
+
         </div>
 
       </div>

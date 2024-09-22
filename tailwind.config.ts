@@ -18,6 +18,11 @@ export default {
           h1: '#fbc02d',
           DEFAULT: '#fdfdfd',
         },
+        sidebar: {
+          bg: '#302e47',
+          DEFAULT: 'rgb(36, 34, 58)',
+        },
+
         pantip: '#3C3963',
         foreground: '#f1f1f1',
         pantipBG: '#333050',

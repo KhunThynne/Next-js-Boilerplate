@@ -14,11 +14,14 @@ export default function Content({
 
   data,
 }: ContentProps) {
+  if (!data) {
+    return null;
+  }
   return (
-    <div className=" rounded-xl border p-3 shadow ">
-      <div className="text-3xl font-bold text-content-h1">{HeadContainer}</div>
+    <div className=" rounded-xl  md:border md:shadow ">
+      <div className="p-3 text-3xl font-bold text-content-h1">{HeadContainer}</div>
 
-      <div className=" grid  grid-cols-[repeat(auto-fit,_minmax(200px,_1fr))] justify-center gap-6
+      <div className=" grid  grid-cols-[repeat(auto-fit,_minmax(250px,_1fr))] justify-center gap-6
 
  gap-y-8
 

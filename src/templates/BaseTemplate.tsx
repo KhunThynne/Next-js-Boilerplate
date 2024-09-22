@@ -1,5 +1,6 @@
 import { useTranslations } from 'next-intl';
 
+import BlackdropContainter from '@/components/BlackdropContainter';
 import ChoiceRoomComponent from '@/components/ChoiceRoomComponent';
 import BreadcrumbsItems from '@/components/Layout/Breadcrumbs';
 import Navbar from '@/components/Layout/Navbar';
@@ -18,7 +19,9 @@ const BaseTemplate = (props: {
 
     <div className="  w-full bg-container   text-gray-700">
       <Navbar />
-      <SideMenu />
+      <BlackdropContainter>
+        <SideMenu />
+      </BlackdropContainter>
 
       {/* Breadcrumbs Layout */}
       <div className="sticky top-0    z-30 bg-white px-6 py-3 md:hidden">
@@ -40,7 +43,7 @@ const BaseTemplate = (props: {
           <ChoiceRoomComponent />
         </div>
         <main className="z-10 min-h-screen  overflow-auto  lg:p-5">
-          <div className="mx-6 py-5  text-xl
+          <div className="px-6 py-5  text-xl
 
            [&_p]:my-6"
           >
@@ -48,7 +51,9 @@ const BaseTemplate = (props: {
           </div>
         </main>
 
-        <footer className="mb:pb-8 border-t border-gray-300 pb-36 pt-8  text-center text-sm md:py-8 ">
+        <footer className="mb:pb-8 border-t border-gray-300 bg-pantip
+        pb-36 pt-8 text-center  text-sm text-light opacity-80 md:py-8"
+        >
           {`© Copyright ${new Date().getFullYear()} ${AppConfig.name}. ${t('made_with')} `}
           <a
             href="https://creativedesignsguru.com"
