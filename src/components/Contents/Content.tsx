@@ -13,12 +13,12 @@ export default function Content({
   HeadContainer = 'Head',
 
   data,
-}: ContentProps) {
+}: ContentProps & { muteBorder?: boolean }) {
   if (!data) {
     return null;
   }
   return (
-    <div className=" rounded-xl  md:border md:shadow ">
+    <div className={` rounded-xl   `}>
       <div className="p-3 text-3xl font-bold text-content-h1">{HeadContainer}</div>
 
       <div className=" grid  grid-cols-[repeat(auto-fit,_minmax(250px,_1fr))] justify-center gap-6

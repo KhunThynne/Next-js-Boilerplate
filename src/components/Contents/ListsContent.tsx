@@ -9,7 +9,11 @@ import { MdOutlineComment } from 'react-icons/md';
 import type { ContentItem } from '../Contexts/untils';
 import type { ContentProps } from './Content';
 
-export default function ContentLists({ HeadContainer = 'Head', data }: ContentProps) {
+export default function ContentLists({
+  HeadContainer = 'Head',
+  data,
+  muteFooter = false,
+}: ContentProps & { muteFooter?: boolean }) {
   if (!data) {
     return null;
   }
@@ -99,7 +103,7 @@ export default function ContentLists({ HeadContainer = 'Head', data }: ContentPr
 
       </CardBody>
 
-      <CardFooter>
+      <CardFooter className={`${muteFooter ? 'hidden' : ''}`}>
         <Button className="w-screen ">ดูเพิ่มเติม</Button>
 
       </CardFooter>

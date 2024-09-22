@@ -6,5 +6,5 @@ import { useContents } from '@/components/Contexts/ContentContext';
 export default function PantipHitzContainer() {
   const { PantipHitzContent } = useContents();
 
-  return (<Content HeadContainer={PantipHitzContent?.headTitle} data={PantipHitzContent?.content} />);
+  return (<Content HeadContainer={PantipHitzContent?.headTitle} data={PantipHitzContent?.content} muteBorder />);
 }
