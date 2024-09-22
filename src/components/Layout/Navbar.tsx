@@ -2,7 +2,7 @@
 
 import { Input } from '@nextui-org/input';
 import { useRouter } from 'next/navigation';
-import { MdMenu, MdPerson, MdSearch } from 'react-icons/md';
+import { MdAddBox, MdMenu, MdPerson, MdSearch } from 'react-icons/md';
 
 import useSidebar from '@/actions/hooks/sidebarToggle';
 
@@ -23,15 +23,16 @@ const Navbar = () => {
  items-center
      justify-center
      border-t
-     bg-white
+bg-primary
        px-[24px]
       py-2
-      text-primary
+
+      text-white
       shadow
       md:sticky
-      md:top-0
-md:justify-between
+md:top-0
 
+md:justify-between
 lg:px-20
      "
     >
@@ -83,7 +84,7 @@ md:block
               '!cursor-text',
             ],
           }}
-          placeholder="Type to search..."
+          placeholder="ค้นหาบน Pantip"
           startContent={
             <MdSearch className="text-2xl" />
           }
@@ -92,8 +93,9 @@ md:block
 
       <div className="order-3 flex  gap-8  text-3xl lg:gap-5">
 
-        <div className="flex  items-center ">
+        <div className="order-1 md:order-2">
           <button
+            className="flex  items-center "
             onClick={() => {
               router.push('https://pantip.com/login?redirect=Zm9ydW0vbmV3X3RvcGlj&pos=2');
             }}
@@ -102,8 +104,20 @@ md:block
             <MdPerson />
           </button>
         </div>
+        <div className="order-2 md:order-1 md:mx-3">
+          <button
 
-        <div className="flex  items-center ">
+            className="flex  items-center"
+            onClick={() => {
+              router.push('https://pantip.com/login?redirect=Zm9ydW0vbmV3X3RvcGlj&pos=2');
+            }}
+            type="button"
+          >
+            <MdAddBox />
+            <h1 className=" hidden text-sm md:block">ตั้งกระทู้</h1>
+          </button>
+        </div>
+        <div className="order-3  flex items-center">
           <button onClick={sidebarToggle} type="button">
             <MdMenu />
           </button>

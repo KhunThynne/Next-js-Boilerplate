@@ -1,4 +1,3 @@
-import { Image } from '@nextui-org/image';
 import { useTranslations } from 'next-intl';
 
 import ChoiceRoomComponent from '@/components/ChoiceRoomComponent';
@@ -17,39 +16,34 @@ const BaseTemplate = (props: {
 
   return (
 
-    <div className="  w-full text-gray-700 antialiased ">
+    <div className="  w-full bg-container   text-gray-700">
       <Navbar />
       <SideMenu />
 
-      <div className=" my-5 hidden justify-center  md:mx-4 md:flex">
-        <Image
-          src={process.env.Picture1_image_URL!}
-
-          alt="ptcdn"
-
-          className="   rounded-none !opacity-90 md:rounded-lg"
-        />
-      </div>
       {/* Breadcrumbs Layout */}
       <div className="sticky top-0    z-30 bg-white px-6 py-3 md:hidden">
 
         <SearchInput />
       </div>
 
-      <div className="my-8 hidden md:block">
-        <BreadcrumbsItems />
-        <hr />
+      <div className=" hidden md:block ">
 
+        <BreadcrumbsItems />
+        <div className="h-4 w-full  bg-[#1d1d1d]"></div>
       </div>
 
       <div className="
-xl:px-10
-       "
-      >
 
-        <ChoiceRoomComponent />
-        <main className="z-10  min-h-screen overflow-auto lg:p-5 ">
-          <div className="mx-6 py-5  text-xl lg:mx-16 [&_p]:my-6">
+      "
+      >
+        <div className="  sticky  top-16 z-20 bg-pantipBG md:top-20 md:bg-transparent">
+          <ChoiceRoomComponent />
+        </div>
+        <main className="z-10 min-h-screen  overflow-auto  lg:p-5">
+          <div className="mx-6 py-5  text-xl
+
+           [&_p]:my-6"
+          >
             {props.children}
           </div>
         </main>

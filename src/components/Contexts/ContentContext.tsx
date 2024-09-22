@@ -3,12 +3,18 @@ import React, { createContext, type ReactNode, useContext, useEffect, useMemo, u
 
 import { CachedFetchXML } from '@/actions/fetch/FetchXML';
 
+import { ItemContentFilter, type PantipContent } from './untils';
+
 type ContextContentsProps = {
 
-  captionItem: any;
-  CotentsData: any;
-  RoomChoiceContent: any;
+  captionItem: [];
+  CotentsData: [];
+  RoomChoiceContent: [];
   SideItemsContent: ListItem[];
+  ContentBox: [];
+  PantipPickContent?: PantipContent ;
+  PantipHitzContent?: PantipContent;
+  PantipRealtimeContent?: PantipContent;
 };
 
 export const ContentsContext = createContext<ContextContentsProps | null>(null);
@@ -34,6 +40,12 @@ const ContentsProvider = ({ children }: { children: ReactNode }) => {
   const [RoomChoiceContent, setRoomChoiceContent] = useState<any | any[] | null>(null);
   const [SideItemsContent, setSideItemsContent] = useState<ListItem[]>([]);
 
+  const [PantipPickContent, setPantipPickContent] = useState<PantipContent>();
+  const [PantipHitzContent, setPantipHitzContent] = useState<PantipContent>();
+
+  const [PantipRealtimeContent, setPantipRealtimeContent] = useState<PantipContent>();
+  const [ContentBox, setContentBox] = useState<any>({});
+
   const RoomLists = ($: cheerio.CheerioAPI) => {
     const next_Data = $('#__NEXT_DATA__').text();
     setRoomChoiceContent(JSON.parse(next_Data)?.props?.initialState.header.roomLists);
@@ -46,7 +58,8 @@ const ContentsProvider = ({ children }: { children: ReactNode }) => {
         if (!xml) {
           return;
         }
-
+        const parser = new DOMParser();
+        parser.parseFromString(xml, 'application/xml');
         const $ = cheerio.load(xml);
 
         RoomLists($);
@@ -71,10 +84,19 @@ const ContentsProvider = ({ children }: { children: ReactNode }) => {
           };
         }).get();
 
-        const findS = $('.pt-block');
-        console.log(findS);
+        const Block = $('.pt-block');
+        console.log($().html());
+        const pantipRealtime = ItemContentFilter($, Block, 'Pantip Realtime');
+        const pantipPick = ItemContentFilter($, Block, 'Pantip Pick');
+        const pantipHitz = ItemContentFilter($, Block, 'Pantip Hitz');
+        setPantipPickContent(pantipPick);
+
+        setPantipRealtimeContent(pantipRealtime);
+
+        setPantipHitzContent(pantipHitz);
+        setContentBox({ PantipRealtime: pantipRealtime, PantipPick: pantipPick, PantipHitz: pantipHitz });
         setCaptionItem(items_caption);
-        setCotentsData(findS);
+        setCotentsData(Block);
       } catch (error) {
         console.error('Error fetching data:', error);
       }
@@ -88,7 +110,11 @@ const ContentsProvider = ({ children }: { children: ReactNode }) => {
     captionItem,
     CotentsData,
     SideItemsContent,
-  }), [captionItem, CotentsData, RoomChoiceContent, SideItemsContent]);
+    ContentBox,
+    PantipPickContent,
+    PantipRealtimeContent,
+    PantipHitzContent,
+  }), [captionItem, PantipHitzContent, CotentsData, RoomChoiceContent, SideItemsContent, ContentBox, PantipPickContent, PantipRealtimeContent]);
 
   return (
     <ContentsContext.Provider value={contextValue}>

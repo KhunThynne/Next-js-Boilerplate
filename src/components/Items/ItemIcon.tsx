@@ -6,13 +6,13 @@ import React from 'react';
 export default function ItemIcon({ item }: { item: any }) {
   return (
 
-    <Link href={item.link_url} className="hover:opacity-80">
+    <Link href={item.link_url} className=" hover:opacity-80">
 
       <div className=" flex flex-col  px-2">
 
         <div className=" my-2 flex w-16 justify-center">
           <Image
-            className="rounded-lg bg-gray-800"
+            className="rounded-lg bg-icon"
             src={item.room_icon_url}
             alt={item.name}
             width={40}
@@ -20,7 +20,7 @@ export default function ItemIcon({ item }: { item: any }) {
             loading="lazy"
           />
         </div>
-        <span className="whitespace-nowrap text-center text-xs font-bold">
+        <span className="whitespace-nowrap text-center text-xs font-bold text-content">
           {item.name}
 
         </span>

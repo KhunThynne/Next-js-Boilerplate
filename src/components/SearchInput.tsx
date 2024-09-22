@@ -32,7 +32,7 @@ export default function SearchInput() {
             '!cursor-text',
           ],
         }}
-        placeholder="Type to search..."
+        placeholder="ค้นหาบน Pantip"
         startContent={
           <MdSearch className="text-2xl" />
         }

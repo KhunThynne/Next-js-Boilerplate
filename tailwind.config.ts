@@ -3,14 +3,25 @@ import type { Config } from 'tailwindcss';
 
 export default {
   content: [
-    "./src/**/*.{js,ts,jsx,tsx}",
-    "./node_modules/@nextui-org/theme/dist/components/(breadcrumbs|button|card|image|input|listbox|popover|skeleton|ripple|spinner|divider).js"
+    './src/**/*.{js,ts,jsx,tsx}',
+    './node_modules/@nextui-org/theme/dist/components/(breadcrumbs|button|card|image|input|listbox|popover|skeleton|ripple|spinner|divider).js',
   ],
   theme: {
     extend: {
       colors: {
-        primary: '#FF5A5F', // Airbnb Red
-        secondary: '#00A699', // Airbnb Teal
+        primary: 'rgb(36, 34, 58)', // Airbnb Red
+        secondary: '#3C3963', // Airbnb Teal
+        light: '#f0f0f0',
+        container: 'rgba(69, 61, 95, 0.87)',
+
+        content: {
+          h1: '#fbc02d',
+          DEFAULT: '#fdfdfd',
+        },
+        pantip: '#3C3963',
+        foreground: '#f1f1f1',
+        pantipBG: '#333050',
+        icon: 'rgb(5, 5, 5)',
         gray: {
           50: '#F7F7F7', // Light Gray
           100: '#E6E6E6',

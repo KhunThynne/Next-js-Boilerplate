@@ -1,24 +1,36 @@
 'use client';
 import { BreadcrumbItem, Breadcrumbs } from '@nextui-org/breadcrumbs';
+import { Image } from '@nextui-org/image';
 
 export default function BreadcrumbsItems() {
   return (
+    <div className="bg-shadow relative flex justify-center  bg-pantipBG">
+      <Image
+        src={process.env.Picture1_image_URL!}
+        alt="ptcdn"
+        className="    !opacity-80 md:rounded-lg"
+      />
+      <Breadcrumbs
+        className="
 
-    <Breadcrumbs className="
+absolute
+bottom-0
+left-0
+z-30
+m-3
+mx-72
 
-   mx-auto
-
-    flex w-4/5  max-w-screen-xl
-
-    rounded
-
-    bg-white
-    p-2
+p-3
+text-xl
     "
-    >
+        size="lg"
 
-      <BreadcrumbItem>Home</BreadcrumbItem>
+        color="foreground"
+      >
 
-    </Breadcrumbs>
+        <BreadcrumbItem>Home</BreadcrumbItem>
+
+      </Breadcrumbs>
+    </div>
   );
 }

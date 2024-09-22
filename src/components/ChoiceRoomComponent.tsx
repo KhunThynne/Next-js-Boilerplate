@@ -8,14 +8,15 @@ export default function ChoiceRoomComponent({ className }: { className?: string 
   const { RoomChoiceContent } = useContents();
 
   return (
-    <div className={`sticky top-16 z-20 flex overflow-x-scroll 
-      bg-white
-     p-1
-     shadow
+    <div className={`  mx-auto 
+     flex
+   max-w-screen-xl
+    overflow-x-scroll
+     rounded-b
+      p-1
      md:top-20
-     md:shadow-none
 
-     lg:mx-16
+   
      ${className} `}
     >
       {RoomChoiceContent ? RoomChoiceContent.map((item: any, index: number) => (
